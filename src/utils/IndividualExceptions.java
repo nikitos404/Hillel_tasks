@@ -1,7 +1,7 @@
 package utils;
 
 public class IndividualExceptions extends Exception{
-    public IndividualExceptions(String str){
-        super(str);
+    public IndividualExceptions(String message){
+        super(message);
     }
 }

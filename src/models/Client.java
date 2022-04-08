@@ -3,7 +3,7 @@ import base.*;
 
 public class Client implements PaymentBill, DiscountBill{
     private String name;
-    private double quantity;
+    private int quantity;
     private double price;
     private final static double DISCOUNT = 12.5;
 
@@ -15,8 +15,8 @@ public class Client implements PaymentBill, DiscountBill{
         this.name = name;
     }
 
-    public double getQuantity(){
-        return quantity;
+    public int getQuantity(){
+        return  quantity;
     }
 
     public void setQuantity(int quantity) {
@@ -33,17 +33,17 @@ public class Client implements PaymentBill, DiscountBill{
 
 
     @Override
-    public double CalculateDiscount(double discount) {
-        return discount * DISCOUNT / 100;
+    public double сalculateDiscount(double priceToPay) {
+        return priceToPay * DISCOUNT / 100;
     }
 
     @Override
-    public double CalculatePaymentBill(int quantity, double price) {
+    public double сalculatePaymentBill(int quantity, double price) {
         return quantity * price;
     }
 
     @Override
-    public double CalculatePaymentWithDiscount(double discount, double priceToPay) {
+    public double сalculatePaymentWithDiscount(double priceToPay, double discount) {
         return priceToPay - discount;
     }
 }

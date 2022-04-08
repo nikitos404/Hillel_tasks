@@ -1,8 +1,8 @@
 package view;
 
 import models.Client;
-import utils.IndividualExceptions;
 import utils.TryCatchValidator;
+
 import java.util.Scanner;
 
 public class ClientView {
@@ -13,49 +13,51 @@ public class ClientView {
     double price;
     Scanner scanner;
 
-    public ClientView (Client model){
+    public ClientView(Client model) {
         this.model = model;
     }
 
-    public void getInputs(){
+    public void getInputs() {
 
         scanner = new Scanner(System.in);
 
-        title = "Введите имя клиента: ";
+        title = "Введите название: ";
         System.out.print(title);
         try {
-            name = TryCatchValidator.ValidateName01(scanner);
-        } catch (IndividualExceptions e) {
-            e.printStackTrace();
-        } try {
-            name = TryCatchValidator.ValidateName02(scanner);
-        } catch (IndividualExceptions e) {
-            e.printStackTrace();
+            name = TryCatchValidator.checkValidName(scanner);
+        } catch (Exception e) {
+            System.out.print("Пусто! Введите имя клиента: ");
+            name = scanner.nextLine().trim();
+
         }
         model.setName(name);
 
-        title = "Введите количество: ";
+
+        title = "Введите кол-во: ";
         System.out.print(title);
         try {
-            quantity = Integer.parseInt(TryCatchValidator.ValidatePrice(scanner));
-        } catch (IndividualExceptions e) {
-            e.printStackTrace();
+            quantity = TryCatchValidator.checkValidQnty(scanner);
+        } catch (Exception e) {
+            System.out.println("Неверное значение! Введите количество: ");
+            quantity = scanner.nextInt();
         }
         model.setQuantity(quantity);
 
         title = "Введите цену: ";
         System.out.print(title);
         try {
-            price = Double.parseDouble(TryCatchValidator.ValidateQuota(scanner));
-        } catch (IndividualExceptions e) {
-            e.printStackTrace();
+            price = TryCatchValidator.checkValidPrice(scanner);
+        } catch (Exception e) {
+            System.out.print("Неверное значение! Введите цену: ");
+            price = scanner.nextDouble();
         }
-        model.setQuantity(quantity);
+        model.setPrice(price);
 
         scanner.close();
-    }
+        }
 
     public void getOutput(String output) {
         System.out.println(output);
     }
 }
+

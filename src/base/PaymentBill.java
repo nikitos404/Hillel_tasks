@@ -1,7 +1,7 @@
 package base;
 
 public interface PaymentBill {
-    double CalculatePaymentBill(int quantity, double price);
+    double сalculatePaymentBill(int quantity, double price);
 
-    double CalculatePaymentWithDiscount(double discount, double priceToPay);
+    double сalculatePaymentWithDiscount(double priceToPay, double discount);
 }
