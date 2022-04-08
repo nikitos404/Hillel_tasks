@@ -4,32 +4,36 @@ import java.util.Scanner;
 
 public class TryCatchValidator {
 
-    static void ValidateName01 (Scanner scanner) throws IndividualExceptions{
+    public static String ValidateName01(Scanner scanner) throws IndividualExceptions{
         String str = scanner.nextLine().trim();
         if (!scanner.hasNext()){
             throw new IndividualExceptions("Уупс...Что-то пошло не так");
         }
+        return str;
     }
-    static void ValidateName02 (Scanner scanner) throws IndividualExceptions{
+    public static String ValidateName02(Scanner scanner) throws IndividualExceptions{
         String str = scanner.next().trim();
         if (str.isEmpty()){
             throw new IndividualExceptions("Пусто...Заполните поле :)");
         }
+        return str;
     }
 
-    static void ValidateQuota (Scanner scanner) throws IndividualExceptions{
+    public static String ValidateQuota(Scanner scanner) throws IndividualExceptions{
         String str = scanner.nextLine().trim();
         if (!scanner.hasNextInt()){
             throw new IndividualExceptions("Не число :(");
 
         }
+        return str;
     }
 
-    static  void ValidatePrice (Scanner scanner) throws IndividualExceptions{
+    public static String ValidatePrice(Scanner scanner) throws IndividualExceptions{
         String str = scanner.nextLine().trim();
         if (!scanner.hasNextDouble()){
             throw new IndividualExceptions("Попробуйте еще раз...");
         }
+        return str ;
     }
 
 

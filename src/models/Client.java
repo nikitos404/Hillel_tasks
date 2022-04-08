@@ -3,7 +3,7 @@ import base.*;
 
 public class Client implements PaymentBill, DiscountBill{
     private String name;
-    private int quantity;
+    private double quantity;
     private double price;
     private final static double DISCOUNT = 12.5;
 
@@ -15,7 +15,7 @@ public class Client implements PaymentBill, DiscountBill{
         this.name = name;
     }
 
-    public int getQuantity(){
+    public double getQuantity(){
         return quantity;
     }
 
